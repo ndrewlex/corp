@@ -1,0 +1,2 @@
+export const MIN_WIDTH_DESKTOP = 840;
+export const MIN_WIDTH_LARGE_DESKTOP = 1440;
