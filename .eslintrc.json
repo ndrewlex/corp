@@ -1,6 +1,13 @@
 {
   "extends": "next/core-web-vitals",
   "plugins": ["simple-import-sort", "unused-imports"],
+  "overrides": [
+    {
+      // enable eslint-plugin-testing-library & eslint-plugin-jest-dom for test files only
+      "files": ["**/?(*.)+(spec|test).[jt]s?(x)"],
+      "extends": ["plugin:jest-dom/recommended", "plugin:testing-library/react"]
+    }
+  ],
   "rules": {
     "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }],
     "simple-import-sort/imports": [

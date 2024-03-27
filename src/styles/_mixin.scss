@@ -1,0 +1,59 @@
+@mixin gap($gap, $vertical: true) {
+  > :not(:last-child) {
+    @if $vertical {
+      margin-bottom: $gap !important;
+    } @else {
+      margin-right: $gap !important;
+    }
+  }
+}
+
+/**
+ * This mixin will create a table with all borders (inside and outside) and with a variable border radius (just outside borders)
+ *
+ * @param $border Full border value, e.g. `1px solid green`
+ * @param $radius Pixel value for border-radius, e.g. `5px`
+ */
+@mixin rounded-table-borders($border, $radius) {
+  border-radius: $radius;
+  border-spacing: 0;
+  border: $border;
+  border-collapse: inherit;
+
+  th,
+  td {
+    border: $border;
+  }
+
+  th + th,
+  th + td,
+  td + th,
+  td + td {
+    border-left: 0;
+  }
+
+  tr + tr th,
+  tr + tr td {
+    border-top: 0;
+  }
+
+  th:first-child,
+  td:first-child {
+    border-left: 0;
+  }
+
+  th:last-child,
+  td:last-child {
+    border-right: 0;
+  }
+
+  tr:first-child th,
+  tr:first-child td {
+    border-top: 0;
+  }
+
+  tr:last-child th,
+  tr:last-child td {
+    border-bottom: 0;
+  }
+}
